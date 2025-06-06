@@ -23,7 +23,7 @@ KRAS is one of the most frequently mutated oncogenes in pancreatic cancers; thus
 
 As mentioned earlier, to focus the analysis on a specific biological context, samples were filtered to include only those from pancreatic cell lines with KRAS as the identified driver gene. This was done using the `get_dataframe.py` script, which accessed and subsetted the dataset metadata to retain only the relevant cell lines based on the filtering criteria (`Organ == Pancreas` and `Driver_Gene_Symbol == KRAS`).
 
-After filtering, the `dataset_updated.py` script was used to define a custom PyTorch dataset (`TahoeDataset`). This dataset class handled gene expression preprocessing, including log-normalization and top-K gene selection using the `f_classif` method based on ANOVA F-statistics. It also generated sparse expression vectors from the selected genes and mapped each sample to its corresponding MOA-broad label, which included three classes: `activator/agonist`, `inhibitor/antagonist`, and `unclear`.
+After filtering, the `dataset.py` script was used to define a custom PyTorch dataset (`TahoeDataset`). This dataset class handled gene expression preprocessing, including log-normalization and top-K gene selection using the `f_classif` method based on ANOVA F-statistics. It also generated sparse expression vectors from the selected genes and mapped each sample to its corresponding MOA-broad label, which included three classes: `activator/agonist`, `inhibitor/antagonist`, and `unclear`.
 
 The `dataset.py` script thus implemented batching, normalization, and dynamic label encoding to prepare the data for input into the transformer model. By processing data in a streaming manner and selecting a fixed number of the most informative genes, the approach remained memory-efficient while preserving the structure needed for downstream classification. Thus, the final input for the transformer model included:
 
@@ -47,7 +47,7 @@ Transformers effectively capture complex gene-gene interactions through self-att
 
 ## Training and Evaluation
 
-**Training setup (`trainer_updated.py`):**
+**Training setup (`trainer.py`):**
 
 - Optimizer: Adam
 - Learning rate schedule: Cosine Annealing
@@ -91,11 +91,11 @@ This indicates that the model generalizes reasonably well to unseen data.
 | Step | Description                                             | Script/Code         |
 |------|---------------------------------------------------------|---------------------|
 | 1    | Filtering and Subsetting: Stream data, select KRAS pancreatic cells | `get_dataframe.py`  |
-| 2    | Feature Engineering: Normalize, select top-K genes      | `dataset_updated.py`|
-| 3    | Dataset Preparation: Custom PyTorch dataset and dataloader | `dataset_updated.py`|
+| 2    | Feature Engineering: Normalize, select top-K genes      | `dataset.py`|
+| 3    | Dataset Preparation: Custom PyTorch dataset and dataloader | `dataset.py`|
 | 4    | Model Definition: Transformer architecture              | `model.py`          |
-| 5    | Training and Logging: Train the model, log metrics      | `trainer_updated.py`|
-| 6    | Evaluation: Evaluate on held-out test set               | `evaluate.py`       |
+| 5    | Training and Logging: Train the model, log metrics      | `trainer.py`|
+| 6    | Evaluation: Evaluate on held-out test set               | `trainer.py` & `evaluate.py`       |
 
 ## Rationale
 

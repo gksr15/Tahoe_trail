@@ -13,8 +13,11 @@ KRAS is one of the most frequently mutated oncogenes in pancreatic cancers; thus
 **Data characteristics:**
 
 - Large-scale single-cell RNA-seq (`expression_data`)
+  ![Expression Data](./expression_data.png)
 - `cell_line_metadata`
+  ![Cell-line Metadata](./Cell_line_metadata.png)
 - `drug_metadata`
+  ![Drug Metadata](./drug_metadata.png)
 
 ## Data Preparation
 
@@ -75,6 +78,8 @@ Our pipeline with dataset, model, and trainer works end-to-end, but due to compu
 
 ## Test Performance
 ![Test Accuracy and Loss](./Test_accuracy_loss.png)
+
+
 The checkpointed model was then evaluated on a test set of 10,000 samples using the `evaluate.py` script:
 
 - **Test Accuracy:** 0.6653

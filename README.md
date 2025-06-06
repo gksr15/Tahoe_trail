@@ -80,7 +80,7 @@ Our pipeline with dataset, model, and trainer works end-to-end, but due to compu
 ![Test Accuracy and Loss](./Test_accuracy_loss.png)
 
 
-The checkpointed model was then evaluated on a test set of 10,000 samples using the `evaluate.py` script:
+The checkpointed model was then evaluated on a test set of 5000 samples using the `evaluate.py` script:
 
 - **Test Accuracy:** 0.6653
 

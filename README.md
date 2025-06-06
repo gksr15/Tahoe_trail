@@ -62,6 +62,7 @@ Transformers effectively capture complex gene-gene interactions through self-att
 - Cross-Entropy Loss
 - TensorBoard logging for real-time monitoring
 
+
 ## Outcomes
 
 Our pipeline with dataset, model, and trainer works end-to-end, but due to computational and resource constraints, we trained our model for one epoch on 500,000 samples. The resulting performance was:
@@ -69,6 +70,11 @@ Our pipeline with dataset, model, and trainer works end-to-end, but due to compu
 - **Train Loss:** 0.7761  
 - **Train Accuracy:** 0.7006
 
+## Training Curves
+![Training Accuracy and Loss](./Train_accuracy_loss.png)
+
+## Test Performance
+![Test Accuracy and Loss](./Test_accuracy_loss.png)
 The checkpointed model was then evaluated on a test set of 10,000 samples using the `evaluate.py` script:
 
 - **Test Accuracy:** 0.6653

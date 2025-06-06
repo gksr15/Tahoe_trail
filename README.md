@@ -108,8 +108,6 @@ The ultimate purpose is twofold:
 
 This project demonstrates that transformer-based models can learn biologically meaningful patterns in single-cell gene expression profiles and use them to predict drug mechanism of action in a clinically relevant context — KRAS-mutant pancreatic cancer. Even with a reduced dataset and a limited number of training epochs, the model achieved moderate accuracy on unseen data, suggesting it captures core transcriptomic signatures of drug response.
 
-This work lays the foundation for extending such models to more complex tasks like drug synergy prediction, pathway activation profiling, or personalized drug response modeling. Future work could improve interpretability and robustness by integrating model explanation techniques like SHAP or attention-based gene scoring.
-
 
 ## Future Directions
 
